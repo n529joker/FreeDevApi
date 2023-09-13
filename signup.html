@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,600;0,900;1,100;1,200;1,300;1,400;1,800&display=swap" rel="styleinput-fieldsheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="stylesheet" href="./signup.css">
+</head>
+<body>
+   <div class="container">
+    <div class="form-box">
+        <h1 id="title">signup</h1>
+        <form>
+            <div class="input-element">
+                <div class="input-field" id="nameField">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="username">
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" placeholder="Email">
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-key"></i>
+                    <input type="text" placeholder="Password">
+                </div>
+                <div class="input-field" id="retypePassword">
+                    <i class="fa-solid fa-key"></i>
+                    <input type="text" placeholder="Retype Password">
+                </div>
+                <div class="resetPassword">
+                    <p id="resetPassword" > <a href="#" >Forgot password?</a></p>
+                </div>
+                <button id="login" type="submit">signup</button>
+                <p id="createAccount">Aready have an account? <a href="#" id="sigupBtn">login</a></p>
+                <p id="register">Don't have an account? <a href="#" id="loginBtn">signup</a></p>
+            </div>
+        </form>
+    </div>
+   </div> 
+   <script>
+
+    let title = document.getElementById("title")
+    let nameField = document.getElementById("nameField")
+    let retypePassword = document.getElementById("retypePassword")
+    let sigupBtn = document.getElementById("sigupBtn")
+    let login = document.getElementById("login")
+    let createAccount = document.getElementById("createAccount")
+    let resetPassword = document.getElementById("resetPassword")
+    let register = document.getElementById("register")
+    let loginBtn = document.getElementById("loginBtn")
+
+    sigupBtn.onclick = function(){
+        nameField.style.maxHeight = "0";
+        retypePassword.style.maxHeight = "0";
+        login.innerHTML = "login";
+        title.innerHTML = "login";
+        createAccount.style.display= "none"
+        resetPassword.style.display = "block"
+        register.style.display ="block"
+    }
+    loginBtn.onclick = function(){
+        nameField.style.maxHeight = "60px";
+        retypePassword.style.maxHeight = "60px";
+        login.innerHTML = "signup";
+        title.innerHTML = "signup";
+        createAccount.style.display= "block"
+        resetPassword.style.display = "none"
+        register.style.display ="none"
+    }
+   </script>
+</body>
+</html>

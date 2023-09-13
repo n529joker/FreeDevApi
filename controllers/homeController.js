@@ -56,3 +56,22 @@ module.exports.data_get = async (req, res) => {
     }
   }
 };
+
+module.exports.data_get_param = async (req, res) => {
+  try{
+    let param = req.params.param;
+    let data = await Item.find({ $text: { $search: param }, validated: true })
+      .select("-_id -__v -addedOn -validated")
+      .populate({ path: "by", select: "-_id -__v -email -password -role" })
+      .sort({
+        addedOn: 1,
+      });
+    if (data.length === 0) {
+      return res.status(404).json({ Error: `${param} not found!` });
+    } else {
+      return res.status(200).json({ data: data });
+    }
+  }catch(err){
+    res.status(200).json({Error: "Something went wrong"})
+  }
+}

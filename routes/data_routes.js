@@ -9,5 +9,6 @@ router.post("/signup", authController.signup_post);
 
 router.get("/data/:key", checkKey, homeController.data_get)
 router.get("/data", checkKey, homeController.data_get)
+router.get("/data/:key/:param", checkKey, homeController.data_get_param)
 
 module.exports = router;
